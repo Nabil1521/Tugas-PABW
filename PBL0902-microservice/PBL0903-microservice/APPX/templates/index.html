@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PBL0903 Site A Site B</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="toolbar" aria-label="Toolbar">
+        <div class="service-tabs" aria-label="Pilih microservice">
+          <button class="service-tab active" type="button" data-service="MS1">MS1</button>
+          <button class="service-tab" type="button" data-service="MS2">MS2</button>
+          <button class="service-tab" type="button" data-service="MS3">MS3</button>
+        </div>
+
+        <label class="search-box">
+          <span aria-hidden="true">Search</span>
+          <input id="searchInput" type="search" placeholder="Cari nama, merek, atau model...">
+        </label>
+
+        <button id="addButton" class="primary-button" type="button">
+          <span aria-hidden="true">+</span>
+          Tambah Mobil
+        </button>
+      </section>
+
+      <section class="table-wrap" aria-label="Data mobil">
+        <header class="table-title">
+          <div>
+            <p id="serviceLabel">Microservice MS1</p>
+            <h1>Data Cars Web</h1>
+          </div>
+          <span id="dbLabel" class="db-pill">DB-A</span>
+        </header>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Service</th>
+              <th>Nama Mobil</th>
+              <th>Merek</th>
+              <th>Model</th>
+              <th>Harga</th>
+              <th>Deskripsi</th>
+              <th class="action-heading">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="carsBody"></tbody>
+        </table>
+
+        <div id="emptyState" class="empty-state" hidden>Data mobil tidak ditemukan.</div>
+
+        <footer class="table-footer">
+          <p id="tableCount">Menampilkan 0 mobil</p>
+          <nav class="pagination" aria-label="Pagination">
+            <button id="prevPage" type="button" aria-label="Halaman sebelumnya">&lt;</button>
+            <span id="pageNumber">1</span>
+            <button id="nextPage" type="button" aria-label="Halaman berikutnya">&gt;</button>
+          </nav>
+        </footer>
+      </section>
+    </main>
+
+    <dialog id="carDialog">
+      <form id="carForm" method="dialog">
+        <header>
+          <h2 id="dialogTitle">Tambah Mobil</h2>
+          <button id="closeDialog" class="icon-button" type="button" aria-label="Tutup">x</button>
+        </header>
+
+        <input id="carId" type="hidden">
+        <input id="carOwner" type="hidden">
+        <label>
+          Nama Mobil
+          <input id="carname" name="carname" type="text" required maxlength="100">
+        </label>
+        <label>
+          Merek
+          <input id="carbrand" name="carbrand" type="text" required maxlength="100">
+        </label>
+        <label>
+          Model
+          <input id="carmodel" name="carmodel" type="text" required maxlength="100">
+        </label>
+        <label>
+          Harga
+          <input id="carprice" name="carprice" type="text" required maxlength="30">
+        </label>
+        <label>
+          Deskripsi
+          <input id="description" name="description" type="text" maxlength="200">
+        </label>
+
+        <div class="form-actions">
+          <button id="cancelButton" class="secondary-button" type="button">Batal</button>
+          <button class="primary-button" type="submit">Simpan</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
