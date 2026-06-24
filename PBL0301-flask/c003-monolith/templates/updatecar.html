@@ -1,0 +1,51 @@
+{% include 'header.html' %}
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>{{appType}} | Car Project</h1>
+        <h3>
+          Demo:
+          <a href="{{url_for('createcar')}}">Create</a>
+          /
+          <a href="{{url_for('readcar')}}">Read</a>
+          /
+          <a href="{{url_for('searchcar')}}">Search</a>
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Update Car Data</h4>
+        <form method="POST">
+          Nama:
+          <input
+            type="text"
+            name="carName"
+            value="{{ car.carname }}" /><br /><br />
+          Brand:
+          <input
+            type="text"
+            name="carBrand"
+            value="{{ car.carbrand }}" /><br /><br />
+          Model:
+          <input
+            type="text"
+            name="carModel"
+            value="{{ car.carmodel }}" /><br /><br />
+          Harga:
+          <input
+            type="text"
+            name="carPrice"
+            value="{{ car.carprice }}" /><br /><br />
+
+          <button type="submit">Update</button>
+        </form>
+
+        <a href="/readcar">Kembali</a>
+
+      </div>
+    </div>
+  </div>
+</body>
+{% include 'footer.html' %}
