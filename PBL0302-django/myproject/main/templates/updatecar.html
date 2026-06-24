@@ -1,0 +1,83 @@
+{% extends 'base.html' %} {% block content %}
+<div class="animate-fade-in max-w-2xl mx-auto px-6">
+  <div class="mb-8 mt-8">
+    <h2 class="text-3xl font-display font-bold text-white mb-2">
+      Update Data Mobil
+    </h2>
+    <p class="text-white/60">Ubah informasi kendaraan Anda</p>
+  </div>
+
+  <div
+    class="bg-gradient-to-br from-navy-800/50 to-navy-900/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm mb-12">
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+
+      <div>
+        <label class="block text-sm font-medium text-white/80 mb-2">Nama</label>
+        <input
+          type="text"
+          name="carname"
+          value="{{ car.carname }}"
+          class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-white/10 text-white focus:border-navy-500 focus:ring-2 focus:ring-navy-500/30 transition-all" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-white/80 mb-2"
+          >Brand</label
+        >
+        <input
+          type="text"
+          name="carbrand"
+          value="{{ car.carbrand }}"
+          class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-white/10 text-white focus:border-navy-500 focus:ring-2 focus:ring-navy-500/30 transition-all" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-white/80 mb-2"
+          >Model</label
+        >
+        <input
+          type="text"
+          name="carmodel"
+          value="{{ car.carmodel }}"
+          class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-white/10 text-white focus:border-navy-500 focus:ring-2 focus:ring-navy-500/30 transition-all" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-white/80 mb-2"
+          >Harga</label
+        >
+        <input
+          type="number"
+          name="carprice"
+          value="{{ car.carprice }}"
+          class="w-full px-4 py-3 rounded-lg bg-navy-900/50 border border-white/10 text-white focus:border-navy-500 focus:ring-2 focus:ring-navy-500/30 transition-all" />
+      </div>
+
+      <div class="flex gap-3 pt-4">
+        <button
+          type="submit"
+          class="btn-primary text-sm font-semibold px-6 py-3 rounded-xl text-white flex items-center gap-2 flex-1 justify-center">
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7" />
+          </svg>
+          Update
+        </button>
+        <a
+          href="{% url 'read' %}"
+          class="px-6 py-3 rounded-xl bg-navy-800 hover:bg-navy-700 text-white font-semibold transition-all text-sm">
+          Batal
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
